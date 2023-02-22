@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Input from '@mui/joy/Input';
+import FormContainer from "./FormContainer";
+import PDFContainer from "./PDFContainer";
+import {Route, Routes} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // <FormContainer/>
+    //   <PDFContainer/>
+      <div>
+        <Routes>
+          <Route path="/" element={<FormContainer/>} />
+            <Route path="pdf" element={<PDFContainer/>} />
+        </Routes>
+      </div>
+  )
 }
 
 export default App;
