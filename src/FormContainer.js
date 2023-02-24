@@ -131,7 +131,6 @@ const FormContainer = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className={"FormInput"}>
                     <div className={"CategoryName"}>Finanse</div>
                     <div className={"InputContainer"}>
@@ -144,7 +143,6 @@ const FormContainer = () => {
 
                     </div>
                 </div>
-
 
                 <div className={"FormInput"}>
                     <div style={{flex:'1', display:'flex'}}>
@@ -162,7 +160,6 @@ const FormContainer = () => {
                             return (
                             <tr key={x.name}>
                                 <td>{x.name}</td>
-                            {/*<td style={{width:'5%'}}><img height={20} src={'https://cdn-icons-png.flaticon.com/512/2280/2280532.png'}/></td>*/}
                                 <td style={{width:'5%'}} onClick={() => handleSelectElement(x)}><img height={20} src={'https://cdn-icons-png.flaticon.com/512/2603/2603105.png'}/></td>
                             </tr>
                             )})}
@@ -175,8 +172,6 @@ const FormContainer = () => {
 
 
                 <div className={'ButtonContainer'} onClick={() => handleEnablePopUp()}>
-
-                    {/*<Link style={{textDecoration:'none'}} to={"pdf"} state={{names, zipCode, place, street, number, apartmentNumber, timeLimit, advance, placeOfSigning, state}}><h3 className={'ButtonGenerate'}>Generuj</h3></Link>*/}
                     <h3 className={'ButtonGenerate'}>Generuj</h3>
                 </div>
 

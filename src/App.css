@@ -54,8 +54,6 @@
 
 
 .PDFContainer {
-  /*margin: 1cm;*/
-  /*height: 29.7cm;*/
   width: 21cm;
   margin: 0 auto;
   padding: 1.5cm;
@@ -81,10 +79,6 @@
 
 .TableStyle {
   border: 1px solid grey;
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*flex: 1;*/
-  /*display: flex;*/
 }
 
 .SignatureContainer {
@@ -211,24 +205,15 @@ tr:nth-child(even) {
 
 /*POPUP*/
 .popupContainer{
-  /*height: 100vh;*/
-  /*width: 100vw;*/
-  /*background-color: rgba(102, 102, 102, 0.7);*/
   position: absolute;
   top: 0px;
   left: 0px;
   bottom: 0px;
   right: 0px;
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*display: flex;*/
-
 
 }
 
 .popup {
-  /*width: 100%;*/
-  /*background-color: rgb(0,0,0,0.2);*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,7 +225,6 @@ tr:nth-child(even) {
   position: relative;
   padding: 32px;
   width: 90%;
-  /*min-width: 640px;*/
   background-color: #fff;
   border-radius: 10px;
 }

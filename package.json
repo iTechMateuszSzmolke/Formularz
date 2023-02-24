@@ -1,8 +1,7 @@
 {
-  "name": "kris",
+  "name": "form",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "dependencies": {
     "@abbjs/slownie": "^2.0.0",
     "@emotion/react": "^11.10.5",
