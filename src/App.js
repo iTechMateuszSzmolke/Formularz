@@ -8,14 +8,12 @@ import {Route, Routes} from "react-router-dom";
 
 function App() {
   return (
-    // <FormContainer/>
-    //   <PDFContainer/>
-      <div>
+      <main>
         <Routes>
           <Route path="/" element={<FormContainer/>} />
-            <Route path="pdf" element={<PDFContainer/>} />
+            <Route path="/pdf" element={<PDFContainer/>} />
         </Routes>
-      </div>
+      </main>
   )
 }
 
