@@ -2,7 +2,6 @@
   "name": "kris",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://iTechMateuszSzmolke.github.io/umowa",
   "dependencies": {
     "@abbjs/slownie": "^2.0.0",
     "@emotion/react": "^11.10.5",
