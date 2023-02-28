@@ -2,19 +2,21 @@ import {useLocation, useNavigate, Link} from "react-router-dom";
 import {useReactToPrint} from 'react-to-print';
 import {useRef} from "react";
 import logo from './logo.svg'
+import PriceFormater from "price-to-words-pl";
 
 
 const PDFContainer = (props) => {
+    const priceFormater = new PriceFormater()
+
 
     const date = new Date().toLocaleDateString()
-    const {names, zipCode, place, street, number, apartmentNumber, timeLimit,totalPrice ,advance, state, checked, zipCode2, place2, street2, number2, apartmentNumber2, totalPriceInWords, advanceInWords} = props
+    const {names, zipCode, place, street, number, apartmentNumber, timeLimit,totalPrice ,advance, state, checked, zipCode2, place2, street2, number2, apartmentNumber2} = props
     const componentRef = useRef()
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle:'Formularz',
+        documentTitle:`MeblebyKris-umowa`,
     })
-
 
     return (props.trigger) ?
         <div className={'popupContainer'}>
@@ -34,21 +36,22 @@ const PDFContainer = (props) => {
                                 flex: '1',
                                 width: '100%',
                                 display: 'flex',
-                                justifyContent: 'flex-end',
+                                // justifyContent: 'flex-end',
+                                justifyContent:'center',
                             }}>
-                                <img src={logo}
-                                     height={60}/>
+                                <img src={'https://meblebykris.pl/wp-content/uploads/2019/08/znakWodny.png'}
+                                     height={40}/>
                             </div>
 
-                            <p className={'PDFTitle'}>UMOWA</p>
+                            <p className={'PDFTitle'}>UMOWA NA WYKONANIE MEBLI</p>
                             <div className={'PDFText'}>
                                 <p>Zawarta w miejscowości {place} dnia {date}r.</p>
                                 <p>Pomiędzy: <br/> {names} zamieszkałym w {zipCode} {place},
                                     ul.{street} {number} {apartmentNumber === "" ? null :
                                         <p style={{display: 'inline-block'}}>/ {apartmentNumber}</p>}, <br/> zwanym
-                                    dalej ZAMAWIAJĄCYM, <br/> a <br/> Mateusz Szmolke,
-                                    właścicelem firmy iTech Mateusz Szmolke przy ul. Szkolna 8 w
-                                    Przysieczy NIP: 9910523981, zwanym dalej WYKONAWCĄ.
+                                    dalej ZAMAWIAJĄCYM, <br/> a <br/> Krzysztofem Kurpierz,
+                                    właścicelem firmy Meble by Kris, ul. Strzelecja 21
+                                    Przysieczy NIP: 9910401835, zwanym dalej WYKONAWCĄ.
                                 </p>
                             </div>
                             <div className={'PDFText'}>
@@ -87,12 +90,12 @@ const PDFContainer = (props) => {
                             <div className={'PDFText'}>
                                 <p className={'sign§'}>§2</p>
                                 <p>Za wykonanie usługi ustawiają wynagrodzenie w wysokości: <br/> <b> {totalPrice} zł
-                                    brutto (słownie: {totalPriceInWords} złotych brutto)</b></p>
+                                    brutto (słownie: {priceFormater.convert(Number(totalPrice))} brutto)</b></p>
                             </div>
                             <div className={'PDFText'}>
                                 <p>W dniu podpisania umowy Zamawiający wpłacił Wykonawcy zaliczkę w
-                                    wysokości: <b>{advance} zł brutto (słownie: {advanceInWords} zł brutto)</b></p>
-                                <p>Na rachunek mBank <b>0000022223333238488888888888</b> (termin wpłaty 7 dni)</p>
+                                    wysokości: <b>{advance} zł brutto (słownie: {priceFormater.convert(Number(advance))} brutto)</b></p>
+                                <p>Na rachunek mBank <b>55114020040000320276109193</b> (termin wpłaty 7 dni)</p>
                                 <p> Pozostałą część wynagordzenia Zamawiający zapłaci gotówką przy odbiorze dzieła.</p>
                             </div>
                             <div className={'PDFText'}>

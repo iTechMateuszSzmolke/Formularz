@@ -4,8 +4,10 @@ import PDFContainer from "./PDFContainer";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
+import PriceFormater from "price-to-words-pl"
 
 const FormContainer = () => {
+
     const [btnPopUp, setBtnPopUp] = useState(false);
 
     const [placeOfSigning, setPlaceOfSignings] = useState ('')
@@ -22,10 +24,9 @@ const FormContainer = () => {
     const [place, setPlace] = useState('')
     const [place2, setPlace2] = useState('')
     const [timeLimit, setTimeLimit] = useState('')
-    const [advance, setAdvance] = useState('')
-    const [advanceInWords, setAdvanceInWords] = useState('')
-    const [totalPrice, setTotalPrice] = useState('')
-    const [totalPriceInWords, setTotalPriceInWords] = useState('')
+    const [advance, setAdvance] = useState()
+    const [totalPrice, setTotalPrice] = useState()
+
 
     const [state, setState] = useState([{
         name: ''
@@ -63,7 +64,7 @@ const FormContainer = () => {
     return (
         <div className="App">
             <div className={"Form"}>
-                <p className={"HeaderForm"}>Formularz:</p>
+                <p className={"HeaderForm"}>Umowa na wykonanie mebli:</p>
                 <div className={"FormInput"}>
                     <div className={"CategoryName"}>Dane klienta</div>
                     <div className={"InputContainer"}>
@@ -126,7 +127,8 @@ const FormContainer = () => {
 
                             <Input style={{marginBottom:'10px', width:'50%'}} placeholder={"miejscowość podpisania umowy"}  value={placeOfSigning} onChange={e => setPlaceOfSignings(e.target.value)}/>
 
-                        <div className={"TwoElementContainer"}>
+                        <div className={"CategoryName"}>Termin wykonania realizacji</div>
+                        <div className={"TwoElementContainer"} style={{marginTop:'10px'}}>
                             <Input type="date"  placeholder={"data realizacji"} value={timeLimit} onChange={e=> setTimeLimit(e.target.value)}/>
                         </div>
                     </div>
@@ -136,10 +138,7 @@ const FormContainer = () => {
                     <div className={"InputContainer"}>
 
                         <Input style={{marginBottom:'10px', width:'50%'}} placeholder={"kwota całkowita"} value={totalPrice} type={"number"} onChange={e=> setTotalPrice(e.target.value)}/>
-                        <Input className={"OneElementContainer"} placeholder={"kwota całkowita - słownie"} value={totalPriceInWords} type={"text"} onChange={e=> setTotalPriceInWords(e.target.value)}/>
-
                         <Input style={{marginBottom:'10px', width:'50%', marginTop:'20px'}} placeholder={"zaliczka"} value={advance} type={"number"} onChange={e=> setAdvance(e.target.value)}/>
-                        <Input className={"OneElementContainer"} placeholder={"zaliczka - słownie"} value={advanceInWords} type={"text"} onChange={e=> setAdvanceInWords(e.target.value)}/>
 
                     </div>
                 </div>
@@ -175,7 +174,7 @@ const FormContainer = () => {
                     <h3 className={'ButtonGenerate'}>Generuj</h3>
                 </div>
 
-                <PDFContainer trigger={btnPopUp} setTrigger={setBtnPopUp} advanceInWords={advanceInWords} totalPriceInWords={totalPriceInWords} number2={number2} apartmentNumber2={apartmentNumber2} place2={place2} street2={street2} zipCode2={zipCode2} names2={names2} names={names} zipCode={zipCode} place={place} street={street} number={number} apartmentNumber={apartmentNumber} timeLimit={timeLimit} advance={advance} placeOfSigning={placeOfSigning} totalPrice={totalPrice} state={state} checked={checked}/>
+                <PDFContainer trigger={btnPopUp} setTrigger={setBtnPopUp} number2={number2} apartmentNumber2={apartmentNumber2} place2={place2} street2={street2} zipCode2={zipCode2} names2={names2} names={names} zipCode={zipCode} place={place} street={street} number={number} apartmentNumber={apartmentNumber} timeLimit={timeLimit} advance={advance} placeOfSigning={placeOfSigning} totalPrice={totalPrice} state={state} checked={checked}/>
 
             </div>
         </div>
